@@ -1,0 +1,110 @@
+<svg viewBox="0 0 1300 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .domain { fill: #0F2A3C; }
+      .ou-l1 { fill: #14425C; }
+      .ou-l2 { fill: #1B5A7A; }
+      .ou-l3 { fill: #2B7A9E; }
+      .ou-l4 { fill: #3E96B8; }
+      .label { font-family: 'Segoe UI', Arial, sans-serif; fill: #FFFFFF; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; fill: #0F2A3C; font-weight: 700; }
+      .sub { font-family: 'Segoe UI', Arial, sans-serif; fill: #5B7686; }
+      .caption { font-family: 'Segoe UI', Arial, sans-serif; fill: #5B7686; }
+      .line { stroke: #B7C4CC; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1300" height="700" fill="#FFFFFF"/>
+
+  <text x="40" y="42" class="title" font-size="22">Apex Health Systems — Active Directory OU Structure</text>
+  <text x="40" y="64" class="sub" font-size="13">Domain: ApexHealth.local (Users/IT branch expanded; sibling OUs summarized)</text>
+
+  <!-- Domain root -->
+  <rect x="540" y="90" width="220" height="46" rx="6" class="domain"/>
+  <text x="650" y="119" text-anchor="middle" class="label" font-size="15" font-weight="700">ApexHealth.local</text>
+
+  <!-- Level 1 -->
+  <rect x="290" y="190" width="200" height="42" rx="6" class="ou-l1"/>
+  <text x="390" y="216" text-anchor="middle" class="label" font-size="13">OU: Corp-HQ</text>
+
+  <rect x="850" y="190" width="200" height="42" rx="6" class="ou-l1"/>
+  <text x="950" y="216" text-anchor="middle" class="label" font-size="13">OU: Branch-Sites</text>
+  <text x="950" y="248" text-anchor="middle" class="caption" font-size="11">(mirrors Corp-HQ pattern, one per site)</text>
+
+  <path d="M650,136 L650,160 L390,160 L390,190" class="line"/>
+  <path d="M650,136 L650,160 L950,160 L950,190" class="line"/>
+
+  <!-- Level 2: children of Corp-HQ -->
+  <rect x="60" y="290" width="150" height="42" rx="6" class="ou-l2"/>
+  <text x="135" y="316" text-anchor="middle" class="label" font-size="12">OU: Users</text>
+
+  <rect x="225" y="290" width="150" height="42" rx="6" class="ou-l2"/>
+  <text x="300" y="316" text-anchor="middle" class="label" font-size="12">OU: Computers</text>
+  <text x="300" y="350" text-anchor="middle" class="caption" font-size="10">Workstations</text>
+  <text x="300" y="364" text-anchor="middle" class="caption" font-size="10">Servers</text>
+
+  <rect x="390" y="290" width="150" height="42" rx="6" class="ou-l2"/>
+  <text x="465" y="316" text-anchor="middle" class="label" font-size="12">OU: Groups</text>
+  <text x="465" y="350" text-anchor="middle" class="caption" font-size="10">Security-Groups</text>
+  <text x="465" y="364" text-anchor="middle" class="caption" font-size="10">Distribution-Groups</text>
+
+  <rect x="555" y="290" width="170" height="42" rx="6" class="ou-l2"/>
+  <text x="640" y="316" text-anchor="middle" class="label" font-size="12">OU: Service-Accounts</text>
+  <text x="640" y="350" text-anchor="middle" class="caption" font-size="10">(flat OU, no sub-groups)</text>
+
+  <path d="M390,232 L390,260 L135,260 L135,290" class="line"/>
+  <path d="M390,232 L390,260 L300,260 L300,290" class="line"/>
+  <path d="M390,232 L390,260 L465,260 L465,290" class="line"/>
+  <path d="M390,232 L390,260 L640,260 L640,290" class="line"/>
+
+  <!-- Level 3: children of Users -->
+  <rect x="20" y="400" width="130" height="40" rx="6" class="ou-l3"/>
+  <text x="85" y="425" text-anchor="middle" class="label" font-size="11">Clinical-Staff</text>
+
+  <rect x="165" y="400" width="130" height="40" rx="6" class="ou-l3"/>
+  <text x="230" y="425" text-anchor="middle" class="label" font-size="11">Admin-Staff</text>
+
+  <rect x="310" y="400" width="130" height="40" rx="6" class="ou-l3"/>
+  <text x="375" y="425" text-anchor="middle" class="label" font-size="11">Executives</text>
+
+  <rect x="455" y="400" width="130" height="40" rx="6" class="ou-l3"/>
+  <text x="520" y="425" text-anchor="middle" class="label" font-size="11" font-weight="700">IT</text>
+
+  <path d="M135,332 L135,375 L85,375 L85,400" class="line"/>
+  <path d="M135,332 L135,375 L230,375 L230,400" class="line"/>
+  <path d="M135,332 L135,375 L375,375 L375,400" class="line"/>
+  <path d="M135,332 L135,375 L520,375 L520,400" class="line"/>
+
+  <!-- Level 4: children of IT -->
+  <rect x="460" y="480" width="150" height="38" rx="6" class="ou-l4"/>
+  <text x="535" y="504" text-anchor="middle" class="label" font-size="11">SysAdmins</text>
+
+  <rect x="460" y="530" width="150" height="38" rx="6" class="ou-l4"/>
+  <text x="535" y="554" text-anchor="middle" class="label" font-size="11">SecurityAdmins</text>
+
+  <rect x="460" y="580" width="150" height="38" rx="6" class="ou-l4"/>
+  <text x="535" y="604" text-anchor="middle" class="label" font-size="11">NetworkAdmins</text>
+
+  <path d="M520,440 L520,460 L535,460 L535,480" class="line"/>
+  <path d="M535,518 L535,530" class="line"/>
+  <path d="M535,568 L535,580" class="line"/>
+
+  <!-- Legend -->
+  <rect x="900" y="400" width="16" height="16" class="domain"/>
+  <text x="924" y="413" class="caption" font-size="12">Domain root</text>
+
+  <rect x="900" y="428" width="16" height="16" class="ou-l1"/>
+  <text x="924" y="441" class="caption" font-size="12">Top-level OU</text>
+
+  <rect x="900" y="456" width="16" height="16" class="ou-l2"/>
+  <text x="924" y="469" class="caption" font-size="12">Second-level OU</text>
+
+  <rect x="900" y="484" width="16" height="16" class="ou-l3"/>
+  <text x="924" y="497" class="caption" font-size="12">Third-level OU</text>
+
+  <rect x="900" y="512" width="16" height="16" class="ou-l4"/>
+  <text x="924" y="525" class="caption" font-size="12">IT role sub-OU</text>
+
+  <text x="60" y="660" class="caption" font-size="12">GPOs link at: domain root (baseline security), Clinical-Staff (app + update restrictions), IT/* (admin elevation only), Servers (audit + firewall).</text>
+  <text x="60" y="680" class="caption" font-size="12">NTFS permissions are assigned to matching security groups under OU=Groups, never directly to user accounts.</text>
+</svg>

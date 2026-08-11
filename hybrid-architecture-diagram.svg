@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1300 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .zone-title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; fill: #0F2A3C; }
+      .box { fill: #FFFFFF; stroke: #2B7A9E; stroke-width: 1.5; }
+      .box-crit { fill: #14425C; stroke: none; }
+      .label { font-family: 'Segoe UI', Arial, sans-serif; fill: #0F2A3C; font-size: 12px; }
+      .label-w { font-family: 'Segoe UI', Arial, sans-serif; fill: #FFFFFF; font-size: 12px; }
+      .caption { font-family: 'Segoe UI', Arial, sans-serif; fill: #5B7686; font-size: 11px; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; fill: #0F2A3C; font-weight: 700; }
+      .sub { font-family: 'Segoe UI', Arial, sans-serif; fill: #5B7686; }
+      .zone-onprem { fill: #EAF2F6; stroke: #B7C4CC; stroke-width: 1; }
+      .zone-cloud { fill: #F1F7F0; stroke: #B7C4CC; stroke-width: 1; }
+      .arrow { stroke: #5B7686; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dash { stroke: #5B7686; stroke-width: 2; stroke-dasharray: 6,4; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5B7686"/>
+    </marker>
+  </defs>
+
+  <rect width="1300" height="720" fill="#FFFFFF"/>
+
+  <text x="40" y="42" class="title" font-size="22">Apex Health Systems — Hybrid Infrastructure Architecture</text>
+  <text x="40" y="64" class="sub" font-size="13">On-premises (45%, compliance-bound) with cloud-first everything else, linked over a site-to-site VPN</text>
+
+  <!-- On-prem zone -->
+  <rect x="40" y="100" width="560" height="540" rx="10" class="zone-onprem"/>
+  <text x="60" y="128" class="zone-title" font-size="15">ON-PREMISES (compliance-bound, 45%)</text>
+
+  <rect x="70" y="150" width="230" height="50" rx="6" class="box-crit"/>
+  <text x="185" y="172" text-anchor="middle" class="label-w" font-weight="700">Patient Records DB</text>
+  <text x="185" y="190" text-anchor="middle" class="label-w" font-size="10">(regulated data — stays local)</text>
+
+  <rect x="330" y="150" width="230" height="50" rx="6" class="box-crit"/>
+  <text x="445" y="172" text-anchor="middle" class="label-w" font-weight="700">Core EHR-adjacent Svcs</text>
+  <text x="445" y="190" text-anchor="middle" class="label-w" font-size="10">(low-latency requirement)</text>
+
+  <rect x="70" y="230" width="230" height="46" rx="6" class="box"/>
+  <text x="185" y="257" text-anchor="middle" class="label">Domain Controllers (AD/DNS)</text>
+
+  <rect x="330" y="230" width="230" height="46" rx="6" class="box"/>
+  <text x="445" y="257" text-anchor="middle" class="label">DHCP Servers (redundant)</text>
+
+  <rect x="70" y="306" width="230" height="46" rx="6" class="box"/>
+  <text x="185" y="333" text-anchor="middle" class="label">File Shares (Samba/DFS + NFS)</text>
+
+  <rect x="330" y="306" width="230" height="46" rx="6" class="box"/>
+  <text x="445" y="333" text-anchor="middle" class="label">Internal IIS (intranet apps)</text>
+
+  <rect x="70" y="382" width="230" height="46" rx="6" class="box"/>
+  <text x="185" y="409" text-anchor="middle" class="label">Hyper-V / VMware Host Cluster</text>
+
+  <rect x="330" y="382" width="230" height="46" rx="6" class="box"/>
+  <text x="445" y="409" text-anchor="middle" class="label">Reverse Proxy + Forward Proxy</text>
+
+  <rect x="70" y="458" width="490" height="46" rx="6" class="box"/>
+  <text x="315" y="485" text-anchor="middle" class="label">UPS + Generator Failover (sized to reduced on-prem footprint)</text>
+
+  <rect x="70" y="534" width="230" height="46" rx="6" class="box"/>
+  <text x="185" y="561" text-anchor="middle" class="label">rsync / Veeam Backup Agent</text>
+
+  <rect x="330" y="534" width="230" height="46" rx="6" class="box"/>
+  <text x="445" y="561" text-anchor="middle" class="label">Nagios (on-prem service checks)</text>
+
+  <rect x="70" y="600" width="490" height="34" rx="6" fill="#FFFFFF" stroke="#B7C4CC"/>
+  <text x="315" y="622" text-anchor="middle" class="caption">Site-to-site VPN link to cloud tier &#8594;</text>
+
+  <!-- Cloud zone -->
+  <rect x="680" y="100" width="580" height="540" rx="10" class="zone-cloud"/>
+  <text x="700" y="128" class="zone-title" font-size="15">CLOUD (cloud-first, everything else)</text>
+
+  <rect x="710" y="150" width="250" height="46" rx="6" class="box"/>
+  <text x="835" y="177" text-anchor="middle" class="label">Public-facing web apps</text>
+
+  <rect x="990" y="150" width="250" height="46" rx="6" class="box"/>
+  <text x="1115" y="177" text-anchor="middle" class="label">Non-regulated file shares</text>
+
+  <rect x="710" y="226" width="250" height="46" rx="6" class="box"/>
+  <text x="835" y="253" text-anchor="middle" class="label">Dev / Test environments</text>
+
+  <rect x="990" y="226" width="250" height="46" rx="6" class="box"/>
+  <text x="1115" y="253" text-anchor="middle" class="label">Burst compute capacity</text>
+
+  <rect x="710" y="302" width="530" height="50" rx="6" class="box-crit"/>
+  <text x="975" y="322" text-anchor="middle" class="label-w" font-weight="700">Replicated standby copies</text>
+  <text x="975" y="340" text-anchor="middle" class="label-w" font-size="10">of Tier-1 on-prem VMs (DR failover target)</text>
+
+  <rect x="710" y="378" width="250" height="46" rx="6" class="box"/>
+  <text x="835" y="405" text-anchor="middle" class="label">Backup target (3-2-1 copy #2/#3)</text>
+
+  <rect x="990" y="378" width="250" height="46" rx="6" class="box"/>
+  <text x="1115" y="405" text-anchor="middle" class="label">Prometheus + Grafana</text>
+
+  <rect x="710" y="454" width="530" height="46" rx="6" class="box"/>
+  <text x="975" y="481" text-anchor="middle" class="label">Conditional DNS forwarders for cloud zones</text>
+
+  <rect x="710" y="530" width="530" height="34" rx="6" fill="#FFFFFF" stroke="#B7C4CC"/>
+  <text x="975" y="552" text-anchor="middle" class="caption">&#8592; DR failover triggers replication cutover on outage</text>
+
+  <!-- Connector -->
+  <path d="M560,617 L680,617" class="arrow"/>
+  <path d="M975,552 L560,617" class="arrow-dash"/>
+
+  <text x="60" y="672" class="caption">Solid boxes (dark navy) = Tier-1 / compliance-critical. Dashed arrow = DR replication path. Target RTO 4h / RPO 1h for Tier-1 systems.</text>
+</svg>
